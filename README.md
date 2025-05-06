@@ -245,7 +245,6 @@ urlpatterns = [
 <body>
     <h2>Добавить отзыв</h2>
     <form method="POST">
-        {% csrf_token %}
         <label for="name">Имя:</label>
         <input type="text" id="name" name="name" required>
         <label for="content">Отзыв:</label>
@@ -269,8 +268,7 @@ urlpatterns = [
 </head>
 <body>
     <h2>Загрузить домашнее задание</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
+    <form method="POST" enctype="multipart/form-data">з
         <label for="title">Название:</label>
         <input type="text" id="title" name="title" required>
         <label for="file">Файл:</label>
