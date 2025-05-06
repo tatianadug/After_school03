@@ -219,7 +219,6 @@ urlpatterns = [
 <body>
     <h2>Контакты</h2>
     <form method="POST">
-        {% csrf_token %}
         <label for="name">Имя:</label>
         <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
