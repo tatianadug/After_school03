@@ -152,7 +152,7 @@ urlpatterns = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Репетитор английского языка</title>
-    <link rel="stylesheet" href="{% static 'tutor/styles.css' %}">
+    <link rel="stylesheet" href="{% liquid 'tutor/styles.css' %}">
 </head>
 <body>
     <header>
