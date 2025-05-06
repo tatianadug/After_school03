@@ -152,7 +152,9 @@ urlpatterns = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Репетитор английского языка</title>
-    <link rel="stylesheet" href="{% liquid 'tutor/styles.css' %}">
+    `html
+<link rel="stylesheet" href="{{ '/tutor/styles.css' | relative_url }}">
+`
 </head>
 <body>
     <header>
