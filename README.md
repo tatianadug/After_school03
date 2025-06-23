@@ -7,31 +7,31 @@ pip install django
 ### Создание проекта Django
 
 ```bash
-django-admin startproject english_tutor
-cd english_tutor
+django-admin startproject after_school03
+cd _tutors
 ```
 
 ### Создание приложения
 
 ```bash
-python manage.py startapp tutor
+python manage.py startapp afterschool
 ```
 
 ### Настройка проекта
 
 ```python
-# english_tutor/settings.py
+# after_school03/settings.py
 
 INSTALLED_APPS = [
     ...
-    'tutor',
+    'afterschool03',
 ]
 ```
 
 ### Модели
 
 ```python
-# tutor/models.py
+# school/models.py
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -75,7 +75,7 @@ class Course(models.Model):
 ### Представления
 
 ```python
-# tutor/views.py
+# tutors/views.py
 
 from django.shortcuts import render, redirect
 from .models import Service, Review, Homework
@@ -83,13 +83,13 @@ from .models import Service, Review, Homework
 def home(request):
     services = Service.objects.all()
     reviews = Review.objects.all()
-    return render(request, 'tutor/home.html', {'services': services, 'reviews': reviews})
+    return render(request, 'afterschool03/home.html', {'services': services, 'reviews': reviews})
 
 def about(request):
-    return render(request, 'tutor/about.html')
+    return render(request, 'afterschool03/about.html')
 
 def contact(request):
-    return render(request, 'tutor/contact.html')
+    return render(request, 'after_school03/contact.html')
 
 def add_review(request):
     if request.method == 'POST':
@@ -151,20 +151,20 @@ urlpatterns = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Репетитор английского языка</title>
+    <title>Языковая школа after_school03</title>
     `html
-<link rel="stylesheet" href="{{ '/tutor/styles.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/tutors/styles.css' | relative_url }}">
 `
 </head>
 <body>
     <header>
-        <h1>Репетитор английского языка для детей и взрослых</h1>
+        <h1>Языковые курсы для детей и взрослых: английский, китайский, испанский </h1>
         <p>Индивидуальные занятия, подготовка к экзаменам и повышение успеваемости</p>
         <a href="#services" class="btn">Записаться на урок</a>
     </header>
 
     <section id="services">
-        <h2>Мои услуги</h2>
+        <h2>Наши услуги</h2>
         <ul>
             {% for service in services %}
                 <li>{{ service.title }} - от {{ service.price }} ₽</li>
@@ -182,7 +182,7 @@ urlpatterns = [
     </section>
 
     <footer>
-        <p>&copy; 2023 Репетитор английского языка. Все права защищены.</p>
+        <p>&copy; 2025 Языковые курсы. Все права защищены.</p>
     </footer>
 </body>
 </html>
@@ -196,11 +196,11 @@ urlpatterns = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О себе</title>
+    <title>О нас</title>
 </head>
 <body>
     <h2>О себе</h2>
-    <p>Я — опытный преподаватель английского языка с многолетним стажем...</p>
+    <p>Мы — опытные преподаватели английского и китайского языков с многолетним стажем...</p>
     <a href="/">Назад на главную</a>
 </body>
 </html>
